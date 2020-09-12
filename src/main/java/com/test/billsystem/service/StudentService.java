@@ -6,5 +6,6 @@ import com.test.billsystem.model.Student;
 
 public interface StudentService {
 
-	List<Student> getCustomerList();
+	List<Student> getStudentList();
+	void addStudent(Student student);
 }

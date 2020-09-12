@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="students")
@@ -29,6 +33,7 @@ public class Student {
 	@Column(name="address")
 	private String address;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name="dob")
 	private Date dob;
 	
