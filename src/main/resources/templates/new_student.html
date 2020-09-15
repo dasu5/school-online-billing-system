@@ -18,25 +18,44 @@
 		
 		<form action="#" th:action="@{/addStudent}" th:object = "${student}" method="POST" >
 		
+			<label> First Name : </label> 
 			<input type="text" th:field="*{firstName}" placeholder="Student First Name" 
 			class="form-control mb-4 col-4">
 			
+			<label> Last Name : </label> 
 			<input type="text" th:field="*{lastName}" placeholder="Student Last Name" 
 			class="form-control mb-4 col-4">
 			
+			<label> Grade : </label> 
 			<input type="number" th:field="*{grade}" placeholder="Student Grade" 
 			class="form-control mb-4 col-4">
 			
+			<label> Address: </label> 
 			<input type="text" th:field="*{address}" placeholder="Student Address" 
 			class="form-control mb-4 col-4">
 			
-			<input type="text" th:field="*{dob}" placeholder="Student Birthday" 
+			<label> Date of Birth : </label> 
+			<input type="text" th:field="*{dob}" placeholder="YYYY-MM-dd" 
 			class="form-control mb-4 col-4">
 			
-			<input type="number" th:field="*{age}" placeholder="Student Age" 
-			class="form-control mb-4 col-4">
+<!-- 			<label> Registration Type: </label> <br>
+			<select th:field="*{regType}" class="form-control mb-4 col-4">
+    			<option th:value="'Tution Plan'" th:text="Tution Plan"></option>
+    			<option th:value="'Record Keeping'" th:text="Record Keeping"></option>
+			</select> -->
 			
+			<!-- <select th:field="*{school.schoolId}">
+							<option value="">-- </option>
+							<option th:each="school: ${school}"
+									th:value="${school.schoolId}"
+									th:utext="${school.schoolName}"></option>
+						</select>  -->
+			<br>
 			<button type="submit" class="btn btn-info col-2"> Save Student</button>
+			
+			<hr>
+			<a th:href="@{/getStudentList}"> Back </a>
+			<br> <br>
 		</form>
 	</div>
 </body>

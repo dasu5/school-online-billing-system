@@ -11,6 +11,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.test.billsystem.model.Student;
@@ -47,5 +48,18 @@ public class StudentController {
 	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	    dateFormat.setLenient(false);
 	    webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+	}
+	
+	@GetMapping("showUpdateStudentForm/{id}")
+	public String showUpdateStudentForm(@PathVariable(value = "id") int id, Model model) {
+		Student student = studentService.getStudentById(id);
+		model.addAttribute("student", student);
+		return "update_student";
+	}
+	
+	@GetMapping("/deleteStudent/{id}")
+	public String deleteStudent(@PathVariable(value = "id") int id, Model model) {
+		this.studentService.deleteStudentById(id);
+		return "redirect:/getStudentList";
 	}
 }

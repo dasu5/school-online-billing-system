@@ -7,11 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.sun.istack.NotNull;
 
 @Entity
 @Table(name="students")
@@ -21,25 +23,31 @@ public class Student {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int sId;
 	
+	@NotNull
 	@Column(name="first_name")
 	private String firstName;
 	
 	@Column(name="last_name")
 	private String lastName;
 	
+	@NotNull
 	@Column(name="grade")
 	private int grade;
 	
+	@NotNull
 	@Column(name="address")
 	private String address;
 	
+	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name="dob")
 	private Date dob;
 	
-	@Column(name="age")
-	private int age;
+//	@Column(name="reg_type")
+//	private String regType;
 	
+	@ManyToOne()
+	private School school;
 	
 	public int getsId() {
 		return sId;
@@ -77,12 +85,18 @@ public class Student {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	public int getAge() {
-		return age;
+	public School getSchool() {
+		return school;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setSchool(School school) {
+		this.school = school;
 	}
+//	public String getRegType() {
+//		return regType;
+//	}
+//	public void setRegType(String regType) {
+//		this.regType = regType;
+//	}
 
 	
 }

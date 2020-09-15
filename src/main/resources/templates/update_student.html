@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Student Details</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+	
+</head>
+<body>
+
+	<div class="container">
+		<h2>Update Student</h2>
+		<hr>
+		<form action="#" th:action="@{/addStudent}" th:object = "${student}" method="POST" >
+		
+			<input type="hidden" th:field="*{sId}">
+			
+			<input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">
+			
+			<input type="text" th:field="*{lastName}" class="form-control mb-4 col-4">
+			
+			<input type="number" th:field="*{grade}" class="form-control mb-4 col-4">
+			
+			<input type="text" th:field="*{address}" class="form-control mb-4 col-4">
+			
+			<input type="text" th:field="*{dob}" class="form-control mb-4 col-4">
+			
+	<!-- 		<label> Registration Type: </label> <br>
+			<select th:field="*{regType}" class="form-control mb-4 col-4">
+    			<option th:value="'Tution Plan'" th:text="Tution Plan"></option>
+    			<option th:value="'Record Keeping'" th:text="Record Keeping"></option>
+			</select> -->
+			
+			<br>
+			
+			<button type="submit" class="btn btn-info col-2"> Update Student</button>
+		</form>
+	</div>
+</body>
+</html>
