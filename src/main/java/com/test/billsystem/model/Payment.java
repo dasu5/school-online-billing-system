@@ -1,5 +1,7 @@
 package com.test.billsystem.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="payment")
@@ -26,6 +30,12 @@ public class Payment {
 	@Column(name="description")
 	private String description;
 	
+	@Column(name="due_date")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date dueDate;
+	
+	@OneToOne
+	private Invoice invoice;
 
 	public int getpId() {
 		return pId;

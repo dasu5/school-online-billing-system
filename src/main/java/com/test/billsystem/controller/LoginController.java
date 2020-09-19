@@ -27,4 +27,9 @@ public class LoginController {
 		model.addAttribute("invalidCredentials", true);
 		return "/login";
 	}
+	
+	@GetMapping("/signup")
+	public String getSignUpForm() {
+		return "sign_up";
+	}
 }

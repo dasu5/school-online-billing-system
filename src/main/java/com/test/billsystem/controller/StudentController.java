@@ -26,7 +26,7 @@ public class StudentController {
 	@GetMapping("/getStudentList")
 	public String viewHomePage(Model model) {
 		model.addAttribute("listStudents", studentService.getStudentList());	
-		return "index";
+		return "home";
 	}
 	
 	@GetMapping("/showNewStudentForm")
