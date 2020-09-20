@@ -19,8 +19,8 @@ public class User {
 	private int userId;
 	
 	@NotNull
-	@Column(name="name")
-	private String name;
+	@Column(name="username")
+	private String username;
 	
 	@Column(name="email")
 	private String email;
@@ -40,12 +40,12 @@ public class User {
 		this.userId = userId;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPosition() {

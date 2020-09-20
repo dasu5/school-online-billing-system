@@ -8,9 +8,41 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
 	crossorigin="anonymous">
-	
+
 </head>
 <body>
+
+	<nav class="navbar navbar-dark bg-dark">
+		<span class="navbar-brand mb-0 h1">School Online Billing System</span>
+	</nav>
+
+	<div class="container">
+		<h1>Sign Up</h1>
+		<hr>
+
+		<form action="#" th:action="@{/signUp}" th:object="${user}" method="POST">
+
+			<label> Username : </label> 
+			<input type="text" th:field="*{username}" class="form-control mb-4 col-4"> 
+				
+				<label>Email : </label> 
+				<input type="text" th:field="*{email}"
+					placeholder="someone@email.com" class="form-control mb-4 col-4">
+
+			<label> Password : </label> 
+			<input type="password"	th:field="*{password}" class="form-control mb-4 col-4">
+			
+			 <label> Position : </label><br>
+			<select th:field="*{position}" class="form-control mb-4 col-4">
+    			<option th:value="'Admin'" th:text="Admin"></option>
+    			<option th:value="'Teacher'" th:text="Teacher"></option>
+    			<option th:value="'Security'" th:text="Security"></option>
+			</select>
+			<button type="submit" class="btn btn-info col-2">
+				Sign Up
+			</button>
+		</form>
+	</div>
 
 </body>
 </html>
